@@ -1,0 +1,17 @@
+h1 {
+	color: red;
+}
+h2 {
+	background-color: red;
+	color: white;
+}
+.saldo {
+	font-weight: bold;
+}
+div.prenotazione {
+	border: 1px solid black;
+	margin: 5px;
+	padding: 5px;
+	max-width: 250px;
+	float: left;
+}

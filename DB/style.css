@@ -1,0 +1,12 @@
+h1 {
+    color: red;
+    font-size: 24px;
+}
+h2 {
+    color: white;
+    background-color: red;
+    font-size: 20px;
+}
+div{
+    border: 2px solid black;
+}
