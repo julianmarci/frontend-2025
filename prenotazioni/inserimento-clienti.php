@@ -15,25 +15,26 @@
         $databaseUsername = 'root';
         $databasePassword = '';
         $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+        //Check connection
         if (!$mysqli) {
             die("Connection failed: " . mysqli_connect_error());
         } 
-
-         $query = 'SELECT regioni.regione, regioni.area_geografica, prenotazioni.caparra,prenotazioni.id_cliente
-			FROM regioni
-			INNER JOIN regioni ON citta.regione = clienti.citta
+        $query = 'SELECT citta.citta, clienti.nome, clienti.cognome,
+			prenotazioni.arrivo, prenotazioni.importo, prenotazioni.caparra
+			FROM citta
+			INNER JOIN clienti ON citta.id_citta = clienti.citta
 			INNER JOIN prenotazioni ON clienti.id_cliente = prenotazioni.cliente';
         
             
-                $result = mysqli_query($mysqli, $query);
+            $result = mysqli_query($mysqli, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
             $saldo = $row['importo'] - $row['caparra'];
             echo "<div class='prenotazione'>";
             echo "<p>Cliente: " . $row['nome'] . " " . $row['cognome'] . "</p>";
-            echo "<h2>Nome della regione: " . $row['regione'] . "</h2>";
+            echo "<p>Città di residenza: " . $row['citta'] . "</p>";
             echo "</div>";
         }
         mysqli_close($mysqli);
     ?>
-    <body>
+</body>
