@@ -31,7 +31,8 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $saldo = $row['importo'] - $row['caparra'];
             echo "<div class='prenotazione'>";
-            echo "<p>Cliente: " . $row['nome'] . " " . $row['cognome'] . "</p>";
+            echo "<p>Nome: " . $row['nome'] . "</p>";
+            echo "<p>Cognome: " . $row['cognome'] . "</p>";
             echo "<p>Città di residenza: " . $row['citta'] . "</p>";
             echo "</div>";
         }

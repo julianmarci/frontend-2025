@@ -34,6 +34,8 @@
             echo "<p>Importo prenotazione: €" . number_format($row['importo'], 2) . "</p>";
             echo "<p class = 'saldo'>Saldo: €" . number_format($saldo, 2) . "</p>";
             echo "</div>";
+            echo "<button class='btn-dettagli'>Salva</button>";
+            echo "<button class='btn-dettagli'>Anulla</button>";
         }
         mysqli_close($mysqli);
     ?>
