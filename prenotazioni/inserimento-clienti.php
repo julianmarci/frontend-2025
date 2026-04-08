@@ -19,12 +19,14 @@
         if (!$mysqli) {
             die("Connection failed: " . mysqli_connect_error());
         } 
-        $query = 'SELECT citta.citta, clienti.nome, clienti.cognome,
-			prenotazioni.arrivo, prenotazioni.importo, prenotazioni.caparra
-			FROM citta
-			INNER JOIN clienti ON citta.id_citta = clienti.citta
-			INNER JOIN prenotazioni ON clienti.id_cliente = prenotazioni.cliente';
-        
+        $query = 'SELECT 
+            citta.citta,
+            clienti.nome,
+            clienti.cognome,
+          FROM prenotazioni
+          INNER JOIN clienti ON prenotazioni.cliente = clienti.id
+          INNER JOIN citta ON clienti.citta = citta.id';
+    
             
             $result = mysqli_query($mysqli, $query);
 
@@ -34,6 +36,8 @@
             echo "<p>Nome: " . $row['nome'] . "</p>";
             echo "<p>Cognome: " . $row['cognome'] . "</p>";
             echo "<p>Città di residenza: " . $row['citta'] . "</p>";
+            echo "<button class='btn-dettagli'>Salva</button>";
+            echo "<button class='btn-dettagli'>Anulla</button>";
             echo "</div>";
         }
         mysqli_close($mysqli);

@@ -28,14 +28,15 @@
 
         while ($row = mysqli_fetch_assoc($result)) {
             $saldo = $row['importo'] - $row['caparra'];
-            echo "<div class='prenotazione'>";
+            echo "<div class='Registro di cliente e città'>";
             echo "<h2>Nome della regione: " . $row['regione'] . "</h2>";
             echo "<p>Numero di prenotazioni: " . $row['ID_cliente'] . "</p>";
             echo "<p>Importo prenotazione: €" . number_format($row['importo'], 2) . "</p>";
             echo "<p class = 'saldo'>Saldo: €" . number_format($saldo, 2) . "</p>";
-            echo "</div>";
             echo "<button class='btn-dettagli'>Salva</button>";
             echo "<button class='btn-dettagli'>Anulla</button>";
+            echo "</div>";
+
         }
         mysqli_close($mysqli);
     ?>
